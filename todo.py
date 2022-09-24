@@ -1,6 +1,6 @@
 #app.py
-
-from flask import Flask, render_template
+#request is the data in out html
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
@@ -9,9 +9,12 @@ app = Flask(__name__)
 def hello():
     return render_template('home.html')
 
-@app.route('/addTodo', method={'POST'})
+@app.route('/addTodo', methods=['POST'])
 def addTodo():
     #access body information
+    text1 = request.form['text1']
+    print(text1)
+    return(text1)
 
 
 if __name__ == "__main__":

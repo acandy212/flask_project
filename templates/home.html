@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Flask demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  </head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
   <!--This is the javascript for the submitText function we created for the button. Once the user clicks submit it will say submitted in the inspect console-->
   <script>
     function submitText(){
         console.log('submitted')
+        $.ajax({
+          url:"/addTodo", 
+          type: "POST", 
+          //this is the value of input text 1
+          data:{text1: $('#text1').val()}
+        }).done(function(response){
+            console.log(response)
+        })
+        //ajax called takes the side the usr interacts with whre the Api (our backend) interacts with it
         //ajax call to submit
             //you manually write the API request. You have to tell it what to do
         //form submission
@@ -18,12 +28,13 @@
   <body>
     <h1>Hello, world!</h1>
     <!--Creates an input where the user can insert text-->
+    <form method="Post" action="/addTodo">
     <p>Inputs
         <br/>
         Input 1: <input type="text" id="text1" name="text1">
     </p>
     <!--Created a submit button. The submitText is the name we create for when the button is click so javascript can read it-->
-    <button id="submit" onclick="submitText()">Submit</button>
+    <button id="submit" type="submit">Submit</button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   </body>
