@@ -20,22 +20,27 @@
         }).done(function(response){
             console.log(response)
         })
-        //ajax called takes the side the usr interacts with whre the Api (our backend) interacts with it
+        //ajax called takes the side the usr interacts with where the Api (our backend) interacts with it
         //ajax call to submit
             //you manually write the API request. You have to tell it what to do
         //form submission
     }
   </script>
   <body>
-    <header> TO-DO List </header>
+    <h1 class="mb-2 bg-dark text-white"> TO-DO LIST </h1>
     <!--Creates an input where the user can insert text-->
     <form method="Post" action="/addTodo">
-    <p> Enter what you need to do in the text box below
+    <p> Enter what you need to do:
         <br/>
-        Input 1: <input type="text" id="text1" name="text1">
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="inputGroup-sizing-default"></span>
+          <input type="text" id="text1" name="text1" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+        </div>
     </p>
     <!--Created a submit button. The submitText is the name we create for when the button is click so javascript can read it-->
+    <div class="center">
     <button id="submit" type="submit">Submit</button>
+    </div>
     </form>
     {% for todoItem in todoList %}
     {{ todoItem }}

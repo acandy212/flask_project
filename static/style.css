@@ -1,0 +1,29 @@
+body{
+    background-color:aqua;
+}
+
+h1{
+    text-align: center; 
+}
+
+p{
+    text-align: center;
+    font-family: Lucida;
+    font-size: 30px;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+  }
+
+  /*tried to create a class to show what the user type to be at the center instead of the left side of the page
+  todoItem{
+    text-align: center;
+  }
+  */
